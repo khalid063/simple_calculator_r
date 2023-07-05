@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   double calculationResult = 0;
+  String buttonName = "";
 
 
 
@@ -37,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Result : ${calculationResult}", style: TextStyle(fontSize: 20),),
+            Text("$buttonName : ${calculationResult}", style: TextStyle(fontSize: 20),),
             SizedBox(height: 30,),
             TextFormField(
               controller: _firstNumber,
@@ -58,11 +59,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   if(mounted){
                     setState(() {});
                   }
+                  buttonName = "Addition Result";
                 }, child: Text("+")),
                 SizedBox(width: 5,),
                 ElevatedButton(onPressed: (){
                   InputTake();
                   calculationResult = numbers[0].firstNumber! - numbers[0].secondNumber!;
+                  buttonName = "Subtraction Result";
                   if(mounted){
                     setState(() {});
                   }
@@ -71,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ElevatedButton(onPressed: (){
                   InputTake();
                   calculationResult = numbers[0].firstNumber! * numbers[0].secondNumber!;
+                  buttonName = "Multiplication Result";
                   if(mounted){
                     setState(() {});
                   }
@@ -79,6 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ElevatedButton(onPressed: (){
                   InputTake();
                   calculationResult = (numbers[0].firstNumber! / numbers[0].secondNumber!) as double;
+                  buttonName = "Divition Result";
                   if(mounted){
                     setState(() {});
                   }
